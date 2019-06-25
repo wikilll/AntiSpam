@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.receiveMailGroupBox = new System.Windows.Forms.GroupBox();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.readMailButton = new System.Windows.Forms.Button();
             this.refreshMailButton = new System.Windows.Forms.Button();
+            this.readMailButton = new System.Windows.Forms.Button();
+            this.receiveMailGroupBox = new System.Windows.Forms.GroupBox();
             this.deleteMailButton = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.mailDetailGroupBox = new System.Windows.Forms.GroupBox();
+            this.returnButton = new System.Windows.Forms.Button();
             this.mailDetailRichTextBox = new System.Windows.Forms.RichTextBox();
             this.replyMailButton = new System.Windows.Forms.Button();
-            this.returnButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.receiveMailGroupBox.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.mailDetailGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,13 +55,24 @@
             this.panel1.Size = new System.Drawing.Size(380, 426);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
+            // refreshMailButton
             // 
-            this.panel2.Controls.Add(this.mailDetailGroupBox);
-            this.panel2.Location = new System.Drawing.Point(398, 13);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(390, 425);
-            this.panel2.TabIndex = 1;
+            this.refreshMailButton.Location = new System.Drawing.Point(151, 385);
+            this.refreshMailButton.Name = "refreshMailButton";
+            this.refreshMailButton.Size = new System.Drawing.Size(80, 30);
+            this.refreshMailButton.TabIndex = 2;
+            this.refreshMailButton.Text = "刷新";
+            this.refreshMailButton.UseVisualStyleBackColor = true;
+            // 
+            // readMailButton
+            // 
+            this.readMailButton.Location = new System.Drawing.Point(9, 385);
+            this.readMailButton.Name = "readMailButton";
+            this.readMailButton.Size = new System.Drawing.Size(80, 30);
+            this.readMailButton.TabIndex = 1;
+            this.readMailButton.Text = "阅读邮件";
+            this.readMailButton.UseVisualStyleBackColor = true;
+            this.readMailButton.Click += new System.EventHandler(this.readMailButton_Click);
             // 
             // receiveMailGroupBox
             // 
@@ -75,32 +86,6 @@
             this.receiveMailGroupBox.Text = "收件箱";
             this.receiveMailGroupBox.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(6, 24);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(362, 306);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // readMailButton
-            // 
-            this.readMailButton.Location = new System.Drawing.Point(9, 385);
-            this.readMailButton.Name = "readMailButton";
-            this.readMailButton.Size = new System.Drawing.Size(80, 30);
-            this.readMailButton.TabIndex = 1;
-            this.readMailButton.Text = "阅读邮件";
-            this.readMailButton.UseVisualStyleBackColor = true;
-            // 
-            // refreshMailButton
-            // 
-            this.refreshMailButton.Location = new System.Drawing.Point(151, 385);
-            this.refreshMailButton.Name = "refreshMailButton";
-            this.refreshMailButton.Size = new System.Drawing.Size(80, 30);
-            this.refreshMailButton.TabIndex = 2;
-            this.refreshMailButton.Text = "刷新";
-            this.refreshMailButton.UseVisualStyleBackColor = true;
-            // 
             // deleteMailButton
             // 
             this.deleteMailButton.Location = new System.Drawing.Point(288, 382);
@@ -109,6 +94,23 @@
             this.deleteMailButton.TabIndex = 3;
             this.deleteMailButton.Text = "删除";
             this.deleteMailButton.UseVisualStyleBackColor = true;
+            this.deleteMailButton.Click += new System.EventHandler(this.deleteMailButton_Click);
+            // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(6, 24);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(362, 306);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.mailDetailGroupBox);
+            this.panel2.Location = new System.Drawing.Point(398, 13);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(390, 425);
+            this.panel2.TabIndex = 1;
             // 
             // mailDetailGroupBox
             // 
@@ -121,6 +123,15 @@
             this.mailDetailGroupBox.TabIndex = 0;
             this.mailDetailGroupBox.TabStop = false;
             this.mailDetailGroupBox.Text = "详情";
+            // 
+            // returnButton
+            // 
+            this.returnButton.Location = new System.Drawing.Point(262, 379);
+            this.returnButton.Name = "returnButton";
+            this.returnButton.Size = new System.Drawing.Size(80, 29);
+            this.returnButton.TabIndex = 3;
+            this.returnButton.Text = "返回";
+            this.returnButton.UseVisualStyleBackColor = true;
             // 
             // mailDetailRichTextBox
             // 
@@ -139,15 +150,6 @@
             this.replyMailButton.Text = "回复";
             this.replyMailButton.UseVisualStyleBackColor = true;
             // 
-            // returnButton
-            // 
-            this.returnButton.Location = new System.Drawing.Point(262, 379);
-            this.returnButton.Name = "returnButton";
-            this.returnButton.Size = new System.Drawing.Size(80, 29);
-            this.returnButton.TabIndex = 3;
-            this.returnButton.Text = "返回";
-            this.returnButton.UseVisualStyleBackColor = true;
-            // 
             // ReceiveMail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -158,8 +160,8 @@
             this.Name = "ReceiveMail";
             this.Text = "ReceiveMail";
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.receiveMailGroupBox.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.mailDetailGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
