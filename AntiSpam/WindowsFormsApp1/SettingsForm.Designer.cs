@@ -282,7 +282,7 @@
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.defaultButton);
             this.Name = "SettingsForm";
-            this.Text = "SettingsForm";
+            this.Text = "设置";
             this.Load += new System.EventHandler(this.SettingsForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
